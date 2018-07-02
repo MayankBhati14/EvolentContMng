@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace ContactManager.Models
 {
@@ -9,6 +10,7 @@ namespace ContactManager.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<PersonContactInfo> PersonContacts { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
