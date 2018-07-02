@@ -19,7 +19,7 @@ namespace ContactManager.Models
         [StringLength(255)]
         public string LastName { get; set; }
         [Required]
-        [RegularExpression("^[a-z0-9][-a-z0-9._]+@([-a-z0-9]+.)+[a-z]{2,5}$")]
+        [RegularExpression("^[a-z0-9][-a-z0-9._]+@([-a-z0-9]+.)+[a-z]{2,5}$", ErrorMessage = "Email address is not valid")]
         public string Email { get; set; }
         public bool Status { get; set; }
     }

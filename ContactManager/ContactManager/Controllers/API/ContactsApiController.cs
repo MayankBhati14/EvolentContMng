@@ -41,39 +41,7 @@ namespace ContactManager.Controllers.API
 
         
 
-        // PUT api/ContactsApi/5
-        [HttpPut]
-        public IHttpActionResult UpdatePersonContactInfo(int id, ContactDto contactDto)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
-            if (id != contactDto.id)
-            {
-                return BadRequest();
-            }
-            var contactInDB = db.PersonContacts.Find(id);
-            Mapper.Map(contactDto, contactInDB);
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ContactInfoExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-            return Ok(contactDto);            
-        }
+        
 
         // POST api/ContactsApi
         [HttpPost]
